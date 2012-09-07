@@ -9,7 +9,8 @@ pour vous aider dans la réalisation de votre projet.
 
 Pourquoi Jimagine ?
 
-On imagine tous une création, j'imagine pour vous les outils nécessaire dans la réalisation de celui-ci.
+La création d'une application demande de l'imagination suivant les fonctionnalités demandées.
+Le nom inspire à l'imagination, à la création avec des outils appropriés.
 
 Authors
 -------

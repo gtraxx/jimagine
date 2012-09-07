@@ -16,3 +16,8 @@ Authors
 -------
 
  * Gerits Aurelien (Author-Developer) <aurelien[at]magix-dev[point]be>
+ 
+Pages
+-----
+
+http://gtraxx.github.com/jimagine

@@ -37,6 +37,52 @@
             <h2>Plugin nicenotify</h2>
 
             <p>Le plugin nicenotify permet d'effectuer des requêtes ajax avec des helpers pour avoir une notification simple</p>
+            <h3>Affiche une notification simple sans requête ajax</h3>
+            <code>
+                $.nicenotify({
+                    ntype: "simple"
+                });
+            </code>
+            <h3>Affiche une notification avec une requête ajax sans paramètres</h3>
+            <code>
+                $.nicenotify({
+                    ntype: "ajax",
+                    uri: '',
+                    typesend: 'get',
+                    datatype: 'json'
+                });
+            </code>
+            <h3>Affiche une notification avec une requête ajax avec paramètres</h3>
+            <pre class="prettyprint">
+                $.nicenotify({
+                    ntype: "submit",
+                    uri: '',
+                    typesend: 'post',
+                    idforms: form,
+                    resetform:true,
+                    beforeParams:function(){
+                        $(":submit").button({
+                            disabled: true,
+                            label: "Please wait...."
+                        });
+                    },
+                    successParams:function(e){
+                        $(":submit").button({disabled: false,label: "Envoyer"});
+                        $.nicenotify.initbox(e,{
+                            display: true,
+                            refresh: false,
+                            delay: 3000,
+                            text: ''
+                        },{
+                            box:'meerkat',
+                            time: 4,
+                            elemid : '#notify-header',
+                            elemclass : '.mc-head-request',
+                            background : "#efefef"
+                        });
+                    }
+                });
+            </pre>
         </section>
 
         <footer>

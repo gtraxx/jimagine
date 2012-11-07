@@ -1,0 +1,285 @@
+/* ------------------------------- */
+/* = ABOUT                         */
+/* -------------------------------
+
+    @name: High Productive CSS
+    @author : Samuel Lesire
+    @date : 09-2012
+    @version: 0.1
+    @todo : Retester toutes les modifs avec IE7 & friends
+    @note: Feuille regroupant des classes préconfigurer la gestion de liste: navigations, catégorie, produits
+
+/* = Graphic values
+#_Color Code_
+    Dark Grey           :       #4C4C4C         /   h-nav a:hover{background}, h-nav ul{background},
+                                                   h-nav li li a:hover{background},
+                                                   .pagination a{background}, .pagination a:hover{color}
+    Light Grey          :       #EEEEEE         /   v-nav a:hover {background, v-nav-expandable ul a:hover
+    Whhite              :       #F5F5F5         /   h-nav a:hover{color}, v-nav li li{border-top},
+                                                    vnav li li a:hover{color}, v-nav.expandable li ul{background},
+                                                    .pagination a{color}, .pagination a:hover{background}
+    Blue                :       #13569E         /   .breacrumb{color}
+#_Font Family_
+None
+
+*/
+/* ------------------------------- */
+/* = Summary                       */
+/* -------------------------------
+
+  =1 - Navigation list (.h-nav, .v-nav, .breadcrumb., .pagination)
+    =1.1 - Horizontal Nav
+    =1.2 - Vertical Nav
+    =1.3 - Breadcrumb
+    =1.4 - Pagination
+*/
+/* ------------------------------- */
+/* =1 Navigations                  */
+/* ------------------------------- */
+/* =1.1 Horizontal nav */
+.h-nav {
+    overflow: visible;
+    height: 60px; /** = .h-nav > li> a[box-heigh] - padding[top-bottom] - border[top-bottom] **/
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+    .h-nav > li {
+        position: relative;
+        float: left;
+        padding: 0;
+        background: transparent;
+    }
+
+        .h-nav > li > a {
+            display:block;
+            padding: 20px 20px;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .h-nav > li.current > a,
+        .h-nav > li:hover > a,
+        .h-nav > li > a:hover {
+            background-color: #4C4C4C;
+            color: #F5F5F5;
+        }
+
+/** Horizontal subnav **/ /* @TODO étendre à  un troisième et dernier niveau */
+.h-nav > li > ul {
+    display: none;
+    position: absolute;
+        top: 60px;  /** = heigh .h-nav > li> a **/
+        left: 0;
+    margin: 0;
+    padding: 0;
+    background: #4c4c4c;
+}
+
+.h-nav > li:hover > ul {
+    display: block;
+}
+
+        .h-nav > li li {
+                padding: 0;
+                background: transparent;
+        }
+
+            .h-nav li li > a {
+                display: block;
+                padding: 9px 10px 10px 10px;
+                min-width: 172px;
+                font-size: 14px;
+                text-decoration: none;
+                border-top: 1px solid #CCCCCC;
+                color: #F5F5F5;
+            }
+
+            .h-nav li ul > li:first-child > a {
+                padding-top: 10px;
+                border-top: 0;
+            }
+
+            .h-nav li li > a:hover,
+                .h-nav li li.current > a {
+                    background-color: #F5F5F5;
+                    color: #4C4C4C;
+                }
+
+/* =1.2 Vertical nav */
+.v-nav {
+    margin: 0 0 18px 0;
+    padding: 0;
+    border: 1px solid #CCCCCC;
+}
+
+.v-nav > li {
+    padding: 0;
+    border-top: 1px solid #CCCCCC;
+    background: transparent;
+}
+
+.v-nav > li:first-child {
+    border-top: 0;
+}
+
+    .v-nav > li > a {
+            display: block;
+            padding: 9px 10px 10px 10px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+    .v-nav > li:first-child > a {
+        padding-top: 10px;
+    }
+
+.v-nav > li > a:hover,
+    .v-nav > li.current > a {
+        background-color: #EEEEEE;
+    }
+
+    /** SUBNAV flow **/
+    .v-nav > li ul {
+        margin: 0;
+    }
+
+    .v-nav > li li {
+        background: transparent;
+        padding: 0;
+        border-top: 1px solid #F5F5F5;
+    }
+
+    .v-nav > li ul > li:first-child {
+        border-top: 0;
+    }
+
+    .v-nav > li li > a {
+        display: block;
+        padding: 9px 10px 10px 34px;
+        font-size: 12px;
+        text-decoration: none;
+    }
+
+    .v-nav > li ul > li:first-child > a {
+        padding-top: 10px;
+    }
+
+
+    .v-nav > li li > a:hover,
+        .v-nav > li li.current > a {
+            background: #F5F5F5;
+        }
+
+    /** SUBNAV expandable (on :hover) **/
+    .v-nav.expandable li {
+        position: relative;
+    }
+
+    .v-nav.expandable li > ul {
+        display: none;
+        position: absolute;
+            top: -1px;
+            left: 100%;
+        min-width: 170px;
+        border: 1px solid #CCCCCC;
+        background: #F5F5F5;
+    }
+
+    .v-nav.expandable li:hover > ul {
+        display: block;
+    }
+
+    .v-nav.expandable ul > li > a {
+        padding-left: 10px;
+    }
+
+    .v-nav.expandable ul > li > a:hover,
+    .v-nav.expandable ul > li.current > a {
+        background-color: #EEEEEE;
+    }
+
+    /** SUBNAV js-expandable (with JS event 'click') **/
+    .v-nav.js-expandable ul {
+        display: none;
+    }
+
+    .v-nav.js-expandable li.current > ul {
+        display: block;
+    }
+
+    /* JS elements */
+    .v-nav.js-expandable .hitarea,
+    .v-nav.js-expandable .lastExpandable-hitarea,
+    .v-nav.js-expandable .lastCollapsable-hitarea {
+        float: left;
+            height: 24px;
+            width: 24px;
+        margin-top: 8px;
+        background-color: transparent;
+        background-image: url(../img/hitarea.png);
+        background-position: 0 -26px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .v-nav.js-expandable .expandable-hitarea,
+    .v-nav.js-expandable .lastExpandable-hitarea {
+        background-position: 0 -2px;
+    }
+
+    .v-nav.js-expandable li > a,
+    .v-nav.js-expandable li.lastExpandable > a,
+    .v-nav.js-expandable li.lastCollapsable > a {
+        margin: 0;
+        padding-left:  34px;
+}
+
+/* =1.3 breacrumb */
+.breadcrumb {
+    overflow: hidden;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.breadcrumb li,
+.breadcrumb span {
+    float: left;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.breadcrumb,
+.breadcrumb a,
+.breadcrumb li  {
+    padding-left: 0px;
+    font-size: 11px;
+    background: transparent;
+    color: #13569E;
+}
+
+/* =1.4 pagination */
+.pagination > a,
+.pagination > .current {
+    display: block;
+    float: left;
+    height: 24px;
+    width: 24px;
+    margin-right: 6px;
+    line-height: 24px;
+    font-size: 16px;
+    text-align: center;
+    background: #4C4C4C;
+    color: #F5F5F5;
+}
+
+    .pagination .current,
+    .pagination a:hover {
+        border: 1px solid #4C4C4C;
+        color: #4C4C4C;
+        height: 23px;
+        width: 23px;
+        background: #F5F5F5;
+    }

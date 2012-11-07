@@ -1,0 +1,402 @@
+/* ------------------------------- */
+/* = ABOUT                         */
+/* -------------------------------
+
+    @name: High Productive CSS
+    @author : Samuel Lesire
+    @date : 09-2012
+    @version: 0.1
+    @todo : Retester toutes les modifs avec IE7 & friends
+    @note: Feuille regroupant un maximum de balises pour assurer en rendu similaire sur différents navigateurs
+
+/* = Graphic values
+
+_Color Code_
+Dark Grey         :       #4C4C4C        /  body{color, }H1 > h6{color}, hr{background}, fieldset{border}, a{color}, legend{color}
+
+_Font Family_
+Global          :       "Arial", Helvetica, sans-serif
+H1 -> 6         :       "Georgia", Times, sans-serif
+pre, code       ;       "Courier New", Courier, monospace;
+
+_TEXT_
+line-height     :        20px           / #TODO vérifier si l'héritage de body n'est pas suffisant (actuellement placer syur de nombreux TAG)
+
+*/
+/* ------------------------------- */
+/* = Summary                       */
+/* -------------------------------
+
+  =1 - Table Tags
+  =2 - Embedded content Tags @todo étendre à plus de balises
+  =3 - Text-level semantic Tags
+  =4 - Grouping content Tags
+  =5 - Section Tags
+  =6 - Forms Tags
+*/
+
+html {
+    width: 100%;
+}
+
+body {
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+    color: #4C4C4C;
+    background: #FFFFFF;
+}
+
+/* ------------------------------- */
+/* =1 Table Tags                    */
+/* ------------------------------- */
+table {
+    margin-bottom: 16px;
+    border-color: #4C4C4C;
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+tr,
+th {
+    vertical-align: top;
+}
+
+thead th {
+    padding: 10px 10px 9px 10px;
+    border-bottom: 1px solid #4C4C4C;
+    font-weight: bold;
+}
+
+tfoot td{
+    padding: 9px 10px 10px 10px;
+    border-top: 1px solid #4C4C4C;
+    font-weight: bold;
+}
+
+tbody td {
+    padding: 10px;
+    border-left: 1px dashed #4C4C4C;
+}
+
+tr > td:first-child,
+tr > th:first-child {
+    border-left: 0;
+}
+
+/* ------------------------------- */
+/* =2 Embedded content Tags         */
+/* ------------------------------- */
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+a  > img,
+figure > img {
+    display: block;
+    border:none;
+}
+
+/* ------------------------------- */
+/* =3 Text-level semantic Tags      */
+/* ------------------------------- */
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+small {
+    font-size: 12px;
+    font-style: italic;
+}
+
+cite{
+    font-style: italic;
+}
+
+blockquote {
+    margin: 0 0 10px 0;
+    font-style: italic;
+}
+
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    text-decoration: underline;
+    color: #4C4C4C;
+    background-color: transparent;
+}
+
+a:link {
+    color: #4C4C4C;
+}
+
+a:visited {
+    color: #4C4C4C;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    color: #4C4C4C;
+}
+
+/* ------------------------------- */
+/* =4 Grouping content Tags         */
+/* ------------------------------- */
+p,
+pre,
+code,
+dl,
+figure {
+    margin: 0 0 20px 0;
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: transparent;
+}
+
+pre,
+code {
+    font-family: "Courier New", Courier, monospace;
+}
+
+
+blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: italic;
+}
+
+hr {
+    margin: 0px 0px 19px 0;
+    padding: 0;
+    height: 1px;
+    line-height: 0;
+    border: 0;
+    background-color: #4C4C4C;
+}
+
+ul {
+    margin: 0 40px 20px 40px;
+    padding: 0;
+    list-style: none;
+}
+
+ol {
+    margin: 0 40px 20px 40px;
+    list-style-position: inside;
+}
+
+li,
+dt {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: transparent;
+}
+
+ul > li {
+    padding-left: 20px;
+    background-image: url(../img/li-bg.png);
+    background-repeat: no-repeat;
+    background-position: left 4px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0 40px 20px 40px;
+    font-style: italic;
+}
+
+figcaption {
+    font-style: italic;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+/* ------------------------------- */
+/* =5 Section Tags                  */
+/* ------------------------------- */
+section,
+nav,
+article,
+aside,
+hgroup,
+header,
+footer,
+address {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px 0 20px 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    font-family: "Georgia", Times, sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.01em;
+    word-spacing: 0.1pc;
+    color: #4C4C4C;
+}
+
+h1 > a:link, h2 > a:link, h3 > a:link, h4 > a:link, h5 > a:link, h6 > a:link,
+h1 > a:visited, h2 > a:visited, h3 > a:visited, h4 > a:visited, h5 > a:visited, h6 > a:visited {
+    text-decoration: none;
+    color: #4C4C4C;
+}
+
+h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
+    text-decoration: underline;
+    color: #4C4C4C;
+}
+
+h1 {
+    font-size: 36px;
+    line-height:  40px;
+    padding-bottom: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 40px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 20px;
+}
+
+h4 {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+h6 {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+/* ------------------------------- */
+/* =6 Forms Tags                    */
+/* ------------------------------- */
+/** @todo continuer pour les autres éléments de formulaire
+ **/
+form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+label {
+    display: block;
+    margin: 0 0 10px 0;
+    padding: 10px 0 0 0;
+    border: 0;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: transparent;
+}
+
+input:not([type="submit"]):not([type="file"]) {
+    margin: 0 0 10px 0;
+    padding: 5px 10px;
+    border: 1px solid #4C4C4C;
+    font-size: 14px;
+    height: 20px;
+    background-color: transparent;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+    display: block;
+    margin: 0 0 10px 0;
+    padding: 5px 20px;
+    border: 0;
+    font-size: 14px;
+    height: 40px;
+    background-color: #4C4C4C;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #4C4C4C;
+}
+
+select {
+    margin: 0 0 15px 0;
+    border: 1px solid #4C4C4C;
+    border-radius: 0;
+    font-size: 14px;
+    height: 25px;
+    background: transparent;
+}
+
+option {
+    font-size: 14px;
+    background: transparent;
+}
+
+optgroup {
+    padding: 3px;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    padding: 5px 10px;
+    border: 1px solid #4C4C4C;
+    font-size: 14px;
+}
+
+fieldset {
+    border: 1px solid #4C4C4C;
+    padding: 20px;
+    margin: 0;
+}
+
+legend {
+    color: #4C4C4C;
+}

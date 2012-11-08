@@ -28,16 +28,15 @@
  * @author Gérits Aurélien <aurelien[at]magix-dev[dot]be>
  * @name demo
  */
-
-$(function(){
-    //Nom de la société (pour la bulle)
-    var society = 'ma société';
-    //adresse
-    var adress = 'Place Saint Lambert';
-    //Ville
-    var city = 'Liège';
-    //pays
-    var country = 'belgique';
+//Nom de la société (pour la bulle)
+var society = 'ma société';
+//adresse
+var adress = 'Place Saint Lambert';
+//Ville
+var city = 'Liège';
+//pays
+var country = 'belgique';
+function initMap(){
     //Configuration
     var setconfig = {
         latitude : 50.64565,
@@ -49,7 +48,39 @@ $(function(){
         markerPath : 'markers/',
         markerImg : 'red'
     };
-    jm_map.latLng('#map_position',setconfig,setoptions,false);
-    jm_map.autocomplete('#getadress','#map_position');
-    jm_map.getDirection('.subdirection',adress+' '+city+','+country,'#getadress','#map_position','#r-directions');
+    jm_map.latLng('#googlemap',setconfig,setoptions,false);
+}
+function direction(){
+    initMap();
+    jm_map.autocomplete('#getadress','#googlemap');
+    var setconfig = {
+        adress: adress+' '+city+','+country,
+        eventclick: '.subdirection',
+        direction:'#r-directions',
+        inputext:'#getadress'
+    };
+    jm_map.getDirection('#googlemap',setconfig,false);
+}
+function position(){
+    var configPosition = {
+        adress: $('#getadress').val(),
+        latitude : '#lat',
+        longitude : '#lng',
+        zoom : 14
+    };
+    jm_map.adressPosition('#googlemap',configPosition,false);
+}
+$(function(){
+    if($('.map-direction').length != 0){
+        direction();
+    }else if($('.map-position').length != 0){
+        initMap();
+        if($("#googlemap").length !=0){
+            $('#getadress').keypress(function(){
+                jm_map.updateTimer('','position();');
+            }).change(function(){
+                jm_map.updateTimer(100,'position();');
+            });
+        }
+    }
 });

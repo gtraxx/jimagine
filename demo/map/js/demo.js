@@ -45,7 +45,11 @@ $(function(){
         zoom : 14,
         content: '<strong>'+society+'</strong>'+'<br />'+adress+'<br />'+city+'<br />'
     };
-    jm_map.latLng('#map_position',setconfig,false);
+    var setoptions = {
+        markerPath : 'markers/',
+        markerImg : 'red'
+    };
+    jm_map.latLng('#map_position',setconfig,setoptions,false);
     jm_map.autocomplete('#getadress','#map_position');
     jm_map.getDirection('.subdirection',adress+' '+city+','+country,'#getadress','#map_position','#r-directions');
 });

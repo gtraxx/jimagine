@@ -36,50 +36,49 @@ var adress = 'Place Saint Lambert';
 var city = 'Liège';
 //pays
 var country = 'belgique';
-function initMap(){
-    //Configuration
-    var setconfig = {
-        latitude : 50.64565,
-        longitude : 5.5730678,
-        zoom : 14,
-        content: '<strong>'+society+'</strong>'+'<br />'+adress+'<br />'+city+'<br />'
-    };
-    var setoptions = {
-        markerPath : 'markers/',
-        markerImg : 'red'
-    };
-    jm_map.latLng('#googlemap',setconfig,setoptions,false);
+function init(){
+    $('#googlemap').extmap({
+        getLatLng:{
+            content: '<strong>'+society+'</strong>'+'<br />'+adress+'<br />'+city+'<br />',
+            zoom:14,
+            lat: 50.64565,
+            lng: 5.5730678,
+            markerImg:'markers/blue-dot.png'
+        }
+    });
 }
 function direction(){
-    initMap();
-    jm_map.autocomplete('#getadress','#googlemap');
-    var setconfig = {
-        adress: adress+' '+city+','+country,
-        eventclick: '.subdirection',
-        direction:'#r-directions',
-        inputext:'#getadress'
-    };
-    jm_map.getDirection('#googlemap',setconfig,false);
+    $('#googlemap').extmap({
+        getDirection:{
+            button: '.subdirection',
+            search: '#getadress',
+            adress: adress+' '+city+','+country,
+            direction: '#r-directions',
+            autocomplete:true
+        }
+    });
 }
 function position(){
-    var configPosition = {
-        adress: $('#getadress').val(),
-        latitude : '#lat',
-        longitude : '#lng',
-        zoom : 14
-    };
-    jm_map.adressPosition('#googlemap',configPosition,false);
+    $('#googlemap').extmap({
+        getPosition:{
+            zoom:14,
+            lat: '#lat',
+            lng: '#lng',
+            adress: $('#getadress').val(),
+            debug: false
+        }
+    });
 }
 $(function(){
+    init();
     if($('.map-direction').length != 0){
         direction();
     }else if($('.map-position').length != 0){
-        initMap();
         if($("#googlemap").length !=0){
             $('#getadress').keypress(function(){
-                jm_map.updateTimer('','position();');
+                $.mapTimer({ts:'',func:'position();'});
             }).change(function(){
-                jm_map.updateTimer(100,'position();');
+                $.mapTimer({ts:100,func:'position();'});
             });
         }
     }

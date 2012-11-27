@@ -37,7 +37,7 @@ var city = 'Liège';
 //pays
 var country = 'belgique';
 function init(){
-    $('#googlemap').extmap({
+    $('#googlemap').jmMap({
         getLatLng:{
             content: '<strong>'+society+'</strong>'+'<br />'+adress+'<br />'+city+'<br />',
             zoom:14,
@@ -48,7 +48,7 @@ function init(){
     });
 }
 function direction(){
-    $('#googlemap').extmap({
+    $('#googlemap').jmMap({
         getDirection:{
             button: '.subdirection',
             search: '#getadress',
@@ -59,7 +59,7 @@ function direction(){
     });
 }
 function position(){
-    $('#googlemap').extmap({
+    $('#googlemap').jmMap({
         getPosition:{
             zoom:14,
             lat: '#lat',

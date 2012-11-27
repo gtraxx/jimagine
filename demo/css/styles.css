@@ -1,3 +1,10 @@
+#header{
+    margin:10px 0;
+}
+.title-top{
+    font-size:22px;
+    line-height: 22px;
+}
 input[type="submit"],input[type="button"],button{
     display:inline-block;
 }

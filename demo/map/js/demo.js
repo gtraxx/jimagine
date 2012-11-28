@@ -31,7 +31,7 @@
 //Nom de la société (pour la bulle)
 var society = 'ma société';
 //adresse
-var adress = 'Place Saint Lambert';
+var address = 'Place Saint Lambert';
 //Ville
 var city = 'Liège';
 //pays
@@ -39,7 +39,7 @@ var country = 'belgique';
 function init(){
     $('#googlemap').jmMap({
         getLatLng:{
-            content: '<strong>'+society+'</strong>'+'<br />'+adress+'<br />'+city+'<br />',
+            content: '<strong>'+society+'</strong>'+'<br />'+address+'<br />'+city+'<br />',
             zoom:14,
             lat: 50.64565,
             lng: 5.5730678,
@@ -51,8 +51,8 @@ function direction(){
     $('#googlemap').jmMap({
         getDirection:{
             button: '.subdirection',
-            search: '#getadress',
-            adress: adress+' '+city+','+country,
+            search: '#getaddress',
+            address: address+' '+city+','+country,
             direction: '#r-directions',
             autocomplete:true
         }
@@ -64,7 +64,7 @@ function position(){
             zoom:14,
             lat: '#lat',
             lng: '#lng',
-            adress: $('#getadress').val(),
+            address: $('#getaddress').val(),
             debug: false
         }
     });
@@ -75,7 +75,7 @@ $(function(){
         direction();
     }else if($('.map-position').length != 0){
         if($("#googlemap").length !=0){
-            $('#getadress').keypress(function(){
+            $('#getaddress').keypress(function(){
                 $.mapTimer({ts:'',func:'position();'});
             }).change(function(){
                 $.mapTimer({ts:100,func:'position();'});
